@@ -1,0 +1,182 @@
+zh-CN:
+  simple_form:
+    "yes": '是'
+    "no": '否'
+    required:
+      text: '必填'
+      mark: '*'
+      # When using html, text and mark won't be used.
+      html: "<span class='required-mark'>*</span>"
+    error_notification:
+      default_message: "出现了一些错误，请仔细检查："
+    labels:
+      # 通用名称
+      defaults:
+        equipment_category: 设备类别
+        dep_name: 单位名称
+        period: 版次
+        period_date: 期次
+        period_name: 期次名称
+        cover_pic: 封面
+        address: 地址
+        contact: 联系人
+        is_import: 进口产品
+        qulification: 资质要求
+        picture: 图片
+        send_email: 每日发送邮件
+        login: 帐号
+        desc: 描述
+        name: 名称
+        parent_id: 父节点
+        title: 标题
+        content: 内容
+        new_key_word: 新关键字
+        key_words: 关键字
+        cover: 封面
+        catalog_id: 栏目
+        teacher: 老师
+        article_id: 文章
+        start_at: 开始时间
+        end_at: 结束时间
+        position: 排序权重
+        top: 置顶
+        file: 图片
+        alt: 图片说明
+        link: 链接或脚本
+        place: 摆放位置
+        subject_class: 对象
+        action: 授权方式
+        published: 发布
+        email: 邮箱
+        roles: 角色
+        extra_permissions: 特权
+        permissions: 权限
+        xsize: 自定义封面大小
+        email: 邮箱
+        current_password: 当前密码
+        password: 密码
+        password_confirmation: 确认密码
+        remember_me: 自动登录
+        quote: 特性
+        note: 说明
+        recommend: 推荐
+        active: 激活
+        deal_type: 交易类型
+        url: 网址
+        price: 价格
+        total: 金额
+        info_type: 发布类型
+        bid_type: 招标类型
+        area_id: 区域
+        status: 状态
+        encode: 编码
+        remark: 备注
+        info_url_regx: 抓取规则
+        author: 作者
+        max_links: 最大抓取链接数
+        info_type_id: 发布类型
+        dict: 关键字
+        wd: 搜索关键字来源
+        code: 编号
+        unit: 计量单位
+        branch: 来源部门
+        jsenabled: javascript解析
+        web_range: 范围
+        product_catalog: 产品目录
+        industry_category: 行业类别
+        item_name: 品目
+        budget: 预算金额
+        start_time: 投标开始日期
+        open_bid_time: 开标时间
+        accept_time: 投标截止时间
+        content_tag_selector: 正文选择器
+        list_selector: 列表选择器
+        special_case: 特殊情况
+        max_depth: 抓取页数
+        max_depth_role: 分页规则
+        nature: 企业性质
+        registered_capital: 注册资金
+        employments: 企业人数
+        legal: 公司法人
+        post_code: 邮编
+        contacts: 联系人
+        job: 职务
+        tel: 电话
+        mobile: 手机
+        fax: 传真
+        great: 重大标讯
+        data_source: 数据来源
+        acreage: 面积
+        land_type_id: 土地用途
+        procurement_type: 采购类别
+        procurement_mode: 采购方式
+        procurement_practice: 采购业务
+        is_apply_qualification: 是否申请投标资格
+        brand: 品牌
+        model: 型号
+        quantity: 数量
+        pic: 网站图片
+        product_desc: 商品描述
+      online_auction_project:
+        address: 送货地址
+        name: 项目名称
+      online_auction_product:
+        category_id: 品目
+        unit: 计量单位
+        norm: 技术指标
+        service: 服务要求
+      online_auction_bid:
+        is_fulfill: 是否满足要求
+        service: 服务承诺
+      supplier:
+        name: 公司名称
+        address: 公司地址
+        url: 公司网址
+        desc: 公司简介
+        industry: 所属行业
+        scale: 公司规模
+        organization_code: 组织机构代码
+    hints:
+      defaults:
+        equipment_category: 此项只填写所采购设备的大类名称。例如：台式计算机、刀片服务器、视频会议系统、轿车、电梯、救生用品等
+        accept_time: 年月日 有一个为空将不会被保存
+        max_depth_role: '如"?page=*", "defaults_*.shtml", *表示页数'
+        max_depth: 有些信息每天发布太多需要设置，如央采的网上竞价
+        position: 小数型，越大越靠前
+        action: 'manage(管理), read(读取)'
+        extra_permissions: 除角色包含外的权限
+        cover: "请上传jpg jpeg gif png格式图片"
+      menu:
+        url: ""
+
+  helpers:
+    submit:
+      create: 创建
+      update: 更新
+      submit: 保存
+      session:
+        submit: 登录
+      user:
+        create: 注册
+    select:
+      prompt: 请选择
+  options:
+    pictrues:
+      place:
+        logo: 首页LOGO
+        slide: 首页幻灯片
+
+
+# Labels and hints examples
+# labels:
+#   defaults:
+#     password: 'Password'
+#   user:
+#     new:
+#       email: 'E-mail to sign in.'
+#     edit:
+#       email: 'E-mail.'
+# hints:
+#   defaults:
+#     username: 'User name to sign in.'
+#     password: 'No special characters, please.'

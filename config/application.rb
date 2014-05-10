@@ -14,6 +14,7 @@ module InvoicingSystem
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
@@ -34,6 +35,10 @@ module InvoicingSystem
     # config.i18n.default_locale = :de
 
     # Configure the default encoding used in templates for Ruby 1.9.
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
+    config.i18n.locale = 'zh-CN'
+    config.i18n.default_locale = 'zh-CN'
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.

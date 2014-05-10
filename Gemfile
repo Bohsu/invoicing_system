@@ -18,9 +18,55 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # 加速静态文件编译
+  gem 'turbo-sprockets-rails3'
 end
 
-gem 'jquery-rails'
+# jquery 1.8
+gem 'jquery-rails', '2.1.4'
+
+# 用户系统
+gem 'devise', '2.2.4'
+
+# form封装
+gem 'simple_form','2.1.0'
+
+# 客户端效验
+gem 'client_side_validations', '3.2.5'
+gem 'client_side_validations-simple_form', '2.1.0'
+
+# 数据库字段备注
+gem 'migration_comments', '0.3.1'
+
+# 树形结构,ruby处理数据库tree结构
+gem 'ancestry', '2.0.0'
+
+# 分页
+gem 'kaminari', '0.14.1'
+
+
+# 查询
+gem 'meta_search', '1.1.3'
+gem 'squeel', '1.0.18'
+
+# 类xml解析
+gem 'nokogiri', '1.6.0'
+
+# 验证码
+gem 'easy_captcha'
+
+# better error show
+gem 'better_errors'
+
+# 解决中文参数
+gem 'chinese_pinyin'
+
+group :development do
+  gem 'quiet_assets', '1.0.2'
+  gem "thin"
+  gem 'pry-rails', '0.3.1'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

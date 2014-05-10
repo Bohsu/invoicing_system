@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <title>[许邦伟业]管理后台</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <%= csrf_meta_tag %>
+    <%= javascripts "admin"  %>
+    <%= stylesheets "admin" %>
+
+    <script type="text/javascript">
+      // ztree 数据，初始化
+      var zTree;
+      var demoIframe;
+      
+      var setting = {
+        view: {
+          dblClickExpand: false,
+          showLine: true,
+          selectedMulti: false
+        },
+        data: {
+          simpleData: {
+            enable:true,
+            idKey: "id",
+            pIdKey: "pId",
+            rootPId: ""
+          }
+        },
+        callback: {
+          beforeClick: function(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            if (treeNode.isParent) {
+              zTree.expandNode(treeNode);
+              return false;
+            } else {
+              //demoIframe.attr("src",treeNode.file + ".html");
+              //demoIframe.attr("src","admin/web_sites");
+              f_addTab(treeNode.id, treeNode.name, treeNode.file);
+              return true;
+            }
+          }
+        }
+      };
+      
+      var zNodes =[
+       <% current_user.menus.each do |menu| %>
+         {id:<%= menu.id %>, pId:<%= menu.parent_id.blank? ? 0 : menu.parent_id %>, name:"<%= menu.name %>", open:false, file:"<%= menu.url %>"},
+       <% end %>
+      ];
+     
+      $(document).ready(function(){
+        var t = $("#tree");
+        t = $.fn.zTree.init(t, setting, zNodes);
+        demoIframe = $("#home");
+        demoIframe.bind("load", loadReady);
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        zTree.selectNode(zTree.getNodeByParam("id", 101));
+      
+      });
+      
+      function loadReady() {
+        var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+        htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+        maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+        h = demoIframe.height() >= maxH ? minH:maxH ;
+        if (h < 530) h = 530;
+        demoIframe.height(h);
+      }
+
+      // ligerui布局
+      var tab = null;
+      var accordion = null;
+      var tree = null;
+      $(function () {
+      
+        //布局
+        $("#layout1").ligerLayout({ leftWidth: 190, height: '100%',heightDiff:-34,space:4, onHeightChanged: f_heightChanged });
+
+        var height = $(".l-layout-center").height();
+
+        //Tab
+        $("#framecenter").ligerTab({ height: height });
+
+        //面板
+        $("#accordion1").ligerAccordion({ height: height - 24, speed: null });
+
+        $(".l-link").hover(function () {
+            $(this).addClass("l-link-over");
+        }, function () {
+            $(this).removeClass("l-link-over");
+        });
+        tab = $("#framecenter").ligerGetTabManager();
+        accordion = $("#accordion1").ligerGetAccordionManager();
+        tree = $("#tree").ligerGetTreeManager();
+        $("#pageloading").hide();
+
+      });
+
+      function f_heightChanged(options){
+        if (tab)
+            tab.addHeight(options.diff);
+        if (accordion && options.middleHeight - 24 > 0)
+            accordion.setHeight(options.middleHeight - 24);
+      }
+
+      function f_addTab(tabid,text, url){ 
+        tab.addTabItem({ tabid : tabid,text: text, url: url });
+      } 
+         
+      // 初始化iframe欢迎界面
+      $(function(){
+        $("#home").attr('src',"<%= mytp_welcome_path %>")
+      });
+
+     </script> 
+  </head>
+
+  <body style="padding:0px;background:#EAEEF5;">  
+
+    <div id="pageloading"></div>  
+
+    <!-- 顶部导航 -->
+    <div id="topmenu" class="l-topmenu">
+      <div class="l-topmenu-logo">[许邦伟业]管理后台</div>
+      <div class="l-topmenu-welcome">
+        <span>
+          <%= link_to current_user.login, 'javascript:void(0);' %>
+        </span>
+        <span class="space">|</span>
+        <span>
+          <%= link_to current_user.name, 'javascript:void(0);' %>
+        </span> 
+        <span class="space">|</span>
+        <%= link_to '登出 <i class="icon-share-alt"></i>'.html_safe, destroy_user_session_path, :method => :delete  %>
+      </div> 
+    </div>
+
+    <div id="layout1" style="width:99.2%; margin:0 auto; margin-top:4px; "> 
+
+      <!-- 左侧菜单 -->
+      <div position="left"  title="主要菜单" id="accordion1"> 
+        <div title="功能列表" class="l-scroll">
+          <ul id="tree" class="ztree" style="width:260px; overflow:auto;"></ul>
+        </div>
+      </div>
+
+
+      <!-- 内容 -->
+      <div position="center" id="framecenter"> 
+        <div tabid="home" title="我的主页" style="height:300px" >
+          <iframe frameborder="0" style="scroll:auto;padding:5px;" name="home" id="home"></iframe>
+        </div> 
+      </div> 
+
+    </div>
+
+    <div style="height:32px; line-height:32px; text-align:center;">
+      Copyright © 2014 - <%= Time.now.year %> 许邦伟业
+    </div>
+
+    <div style="display:none"></div>
+
+  </body>
+
+</html>

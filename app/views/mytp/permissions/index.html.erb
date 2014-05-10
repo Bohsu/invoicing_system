@@ -1,0 +1,14 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    window.treeOpts = ({
+      current_tree: 'tree-list',
+      url: '/mytp/permissions/',
+      model_name: 'Permission',
+      zNodes: <%= @permissions.to_ztree_node.to_json.html_safe %>
+    })
+    window.ztreeSetting = <%= ztree_settings %>
+  }); 
+</script> 
+
+<%= javascripts 'sortable_tree' %>
+<%= tree_content('新增权限', url: new_mytp_permission_path) %>

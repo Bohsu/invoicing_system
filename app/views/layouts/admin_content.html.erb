@@ -1,0 +1,18 @@
+<html>
+
+  <head>
+    <title>[许邦伟业]管理后台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <%= csrf_meta_tag %>
+    <%= javascripts "admin_content" %>
+    <%= yield :js %>
+    <%= stylesheets "admin_content" %>
+    <%= yield :css %>
+  </head>
+
+  <body style="margin:5px 0 20px 5px;">
+    <%= render '/shared/flash_msg' %>
+    <%= yield %>
+  </body>
+
+</html>

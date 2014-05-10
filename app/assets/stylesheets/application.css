@@ -9,5 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require common
+ *= require index
+ *= require rwft_show
  */
+
+body {
+    background: #A3B3BF;
+    font-family: Verdana,Arial,Helvetica,"微软雅黑","宋体","黑体",sans-serif;
+}
