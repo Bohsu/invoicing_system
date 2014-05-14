@@ -10,8 +10,6 @@
  *
  *= require_self
  *= require common
- *= require index
- *= require rwft_show
  */
 
 body {

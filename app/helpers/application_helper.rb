@@ -14,11 +14,7 @@ module ApplicationHelper
   def include_my97
     javascripts "/plugins/My97DatePicker/WdatePicker.js"
   end
-
-  def include_fusioncharts
-    javascripts "/plugins/fusioncharts/FusionCharts.js"
-  end
-
+  
   # 在新窗口打开链接
   def link_to_blank(*args, &block)
     if block_given?

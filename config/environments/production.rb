@@ -1,5 +1,7 @@
+# -*- encoding : utf-8 -*-
+
 InvoicingSystem::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -42,14 +44,19 @@ InvoicingSystem::Application.configure do
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w(admin.js admin.css admin_content.js admin_content.css  bootstrap-ie.js sortable_tree.js lib.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+
+  # mailer server for xbwy
+  config.action_mailer.default_url_options = { :host => 'service@sinoxbwy.com' }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -65,3 +72,4 @@ InvoicingSystem::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+

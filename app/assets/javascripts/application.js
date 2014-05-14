@@ -5,6 +5,9 @@
 //= require index
 //= require common
 //= require drop_select
+//= require admin
+//= require admin_content
+
 
 // require_tree .
 
