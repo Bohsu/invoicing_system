@@ -22,3 +22,4 @@ solr/pids/
 .idea/*
 .idea/
 *.sql
+.env
