@@ -1,14 +1,15 @@
-<%= simple_form_for [:mytp, @permission] do |f| -%>
+<div class="mt10">
+<%= simple_form_for [:mytp, @permission]  do |f| %>
   <%= f.input :name, :label => "名称" %>
   <%= f.input :url, :label => "路径" %>
   <%= f.input :parent_id, :label => "父级权限" do %>
     <%= f.hidden_field :parent_id  %>
     <%= dynamic_selects Permission, @permission.parent_id, "permission_parent_id" %>
-  <% end -%>
-  <%= f.input :is_menu, :label => "是否菜单", as: :boolean %>
-  <%= f.input :hide, :label => "是否隐藏", as: :boolean  %>
-  <%= f.input :blank, :label => "是否新窗口打开", as: :boolean  %>
+  <% end %>
+  <%= f.input :is_menu, :label => "是否菜单" %>
+  <%= f.input :hide, :label => "是否隐藏"  %>
+  <%= f.input :blank, :label => "是否新窗口打开"  %>
 
   <%= f.submit '确认', :class => "btn-success btn-small" %>
-  <%#= render '/admin/shared/form_buttons', :f => f %>
 <% end -%>
+</div>

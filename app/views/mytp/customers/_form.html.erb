@@ -1,0 +1,37 @@
+<table class="common table-bordered pt20">
+  <tbody>
+  <tr> 
+      <th class='bg'>公司名称：</th> 
+      <td> <%= f.text_field :name  %></td> 
+      <th class='bg'>公司类型：</th> 
+      <td> 暂时空着</td>
+    </tr> 
+    <tr> 
+      <th class='bg'>联系人：</th> 
+      <td><%= f.text_field :contact  %></td>
+      <th class='bg'>手机：</th> 
+      <td><%= f.text_field :mobile  %></td> 
+    </tr> 
+    <tr> 
+      <th class='bg'>电话：</th> 
+      <td><%= f.text_field :tel  %></td> 
+      <th class='bg'>传真：</th> 
+      <td><%= f.text_field :fax %></td> 
+    </tr> 
+    <tr>
+      <th class='bg'>邮箱：</th> 
+      <td><%= f.text_field :email %></td> 
+      <th class='bg'>公司网址：</th> 
+      <td><%= f.text_field :url %></td>
+    </tr> 
+    <tr>
+       <th class='bg'>备注：<br />（100字以内）</th>
+       <td colspan="3"><%= f.text_area :remark, cols: 50, rows: 6, class: 'w500 h50' %></td>
+    </tr> 
+  </tbody>
+</table> 
+
+<div class='mt10'> 
+  <%= f.submit '提交', :class=>'btn btn-small btn-primary' %>
+  <%= link_to '取消',  mytp_customers_path, :class=>'btn btn-small btn-default' %>
+</div> 

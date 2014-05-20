@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
@@ -52,7 +53,7 @@ SimpleForm.setup do |config|
   # Defaults to :nested for bootstrap config.
   #   :inline => input + label
   #   :nested => label > input
-  config.boolean_style = :nested
+  config.boolean_style = :inline
 
   # Default class for buttons
   config.button_class = 'btn'
@@ -123,7 +124,7 @@ SimpleForm.setup do |config|
   # config.wrapper_mappings = { :string => :prepend }
 
   # Default priority for time_zone inputs.
-  # config.time_zone_priority = nil
+#  config.time_zone_priority = nil
 
   # Default priority for country inputs.
   # config.country_priority = nil
@@ -140,3 +141,4 @@ SimpleForm.setup do |config|
   # Cache SimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
 end
+

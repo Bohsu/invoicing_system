@@ -156,37 +156,7 @@ module ApplicationHelper
     |.html_safe
   end
 
-  # 显示日志
-  def show_logs(object)
-    record = OperateLog.find_by_logable_id_and_logable_type(object.id, object.class.to_s)
-    unless record.nil?
-      html = "<div>
-      <p class='label label-important'>操作日志</p><table class='common table-bordered table-striped table-hover' id='logs_table'>
-        <thead>
-        <tr>
-          <th>操作时间</th>
-          <th>操作人姓名[编号]</th>
-          <th>操作人单位</th>
-          <th>操作内容</th>
-          <!--<th style='width:100px;'>当前状态</th>-->
-          <th style='width:140px;'>IP地址</th>
-          <th>备注</th>
-        </tr>
-        </thead>"
-      log_doc = Nokogiri::XML(record.details)
-      log_doc.xpath('//log').each do |log|
-      html << "<tr>
-        <td>&nbsp;#{log.attr('操作时间')} </td>
-        <td>&nbsp;#{log.attr('操作人姓名')}[#{log.attr('操作人ID')}]</td>
-        <td>&nbsp;#{log.attr('操作人单位')}</td>
-        <td>&nbsp;#{log.attr('操作内容')}</td>
-        <td>&nbsp;#{log.attr('IP地址')}</td>
-        <td>&nbsp;#{log.attr('备注')}</td></tr>"
-      end
-      html << "</table></div>"
-      return html.html_safe
-    end
-  end
+  
 
   def check_all_selector(selector = 'select_all')
     check_box_tag selector, '', false, onclick: 'select_all_records()'

@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :permission_users, :dependent => :delete_all
   has_many :permissions, :through => :permission_users
 
+  validates :login, :uniqueness => true
+  validates_presence_of :login, :password, :password_confirmation, :email, :on => :create
+
    # 该用户所拥有的所有菜单
   def menus
     Permission.menus
