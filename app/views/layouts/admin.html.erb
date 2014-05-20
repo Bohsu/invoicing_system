@@ -125,10 +125,6 @@
       <div class="l-topmenu-welcome">
         <span>
           <%= link_to current_user.login, 'javascript:void(0);' %>
-        </span>
-        <span class="space">|</span>
-        <span>
-          <%= link_to current_user.name, 'javascript:void(0);' %>
         </span> 
         <span class="space">|</span>
         <%= link_to '登出 <i class="icon-share-alt"></i>'.html_safe, destroy_user_session_path, :method => :delete  %>

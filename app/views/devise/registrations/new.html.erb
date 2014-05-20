@@ -1,17 +1,35 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+<div class="admin_login_wrap">
+  <h1>后台管理</h1>
+  <div class="adming_login_border">
+    <div class="admin_input">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
+        <%= render 'shared/flash_msg' %>
+        <ul class="admin_items">
+          <li>
+            <label >邮箱</label>
+            <%= f.text_field :email, :autofocus => true, :size => "40", :class => "admin_input_style" %>
+          </li>
+          <li>
+            <label >登录名</label>
+            <%= f.text_field :login, :autofocus => true, :size => "40", :class => "admin_input_style" %>
+          </li>
+          <li>
+            <label >密 码</label>
+            <%= f.password_field :password, :size => "40", :class => "admin_input_style" %>
+          </li>
+          <li>
+            <label > 确认密码</label>
+            <%= f.password_field :password_confirmation, :size => "40", :class => "admin_input_style" %>
+          </li>
+          <li>
+             <%= f.submit "注册" , :class=>'btn btn-primary'%>
+          </li>
+        </ul>
+      <% end %>
+    </div>
   </div>
+  <p class="admin_copyright">
+    <%= link_to "许邦伟业", new_user_session_path %> &copy; 2014 Powered by <a href="http://bohsu.github.com" target="_blank">bohsu</a>
+  </p>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

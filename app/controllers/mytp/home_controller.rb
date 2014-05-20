@@ -1,4 +1,4 @@
-class Mytp::HomeController < ApplicationController
+class Mytp::HomeController < Mytp::BaseController
 
   layout  "admin"
 

@@ -3,7 +3,8 @@
 InvoicingSystem::Application.routes.draw do
 
   devise_for :users, controllers: {
-    sessions: "user/sessions"
+    sessions: "user/sessions",
+    registrations: "user/registrations"
   }
   devise_scope :user do
     root :to => 'user/sessions#new'
@@ -13,6 +14,7 @@ InvoicingSystem::Application.routes.draw do
   namespace :mytp do
     resources :home, :only => [:index]
     resources :permissions
+    resources :customers
   end
 
     
