@@ -9,3 +9,4 @@
 //= require drop_select
 //= require jquery_nested_form
 //= require jquery.Jcrop
+//= require product

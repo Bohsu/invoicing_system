@@ -1,0 +1,4 @@
+<%= form_for @buy, url: mytp_buys_path(@buy) do |f| %>
+  <h5>添加进货单</h5> 
+  <%= render :partial => 'form', locals: {f: f} %>
+<% end %>

@@ -4,6 +4,7 @@
 </div>
 
 <table class="common table-bordered table-striped table-hover">   
+  <thead>
     <tr>
       <th>序号</th>
       <th>公司名称</th>
@@ -12,7 +13,9 @@
       <th>电话</th>
       <th>邮箱</th>
       <th>操作</th>
-    </tr>    
+    </tr>  
+  </thead>
+  <tbody>  
     <% @customers.each_with_index do |customer, index| %>
       <tr>
         <td class="tc"><%= index + 1  %></td>
@@ -22,11 +25,12 @@
         <td><%= customer.tel %></td>
         <td><%= customer.email %></td>        
         <td>
-           <%= edit_link = link_to "修改", edit_mytp_customer_path(customer, :back => request.fullpath) %>
-           <%= destroy_link = link_to '删除', mytp_customer_path(customer, :back => request.fullpath), :method => 'delete', :confirm => "你确定删除吗?" %>
-           <%#= operate_buttons([edit_link, destroy_link].compact) %> 
+           <% edit_link = link_to "修改", edit_mytp_customer_path(customer, :back => request.fullpath) %>
+           <% destroy_link = link_to '删除', mytp_customer_path(customer, :back => request.fullpath), :method => 'delete', :confirm => "你确定删除吗?" %>
+           <%= operate_buttons([edit_link, destroy_link].compact) %> 
         </td>
       </tr>
     <% end -%>
-  </table>
-  <%= paginate @customers %>
+  </tbody>
+</table>
+<%= paginate @customers %>
