@@ -1,0 +1,38 @@
+<h5>商品信息管理</h5> 
+<div class="page-header">
+  <%= link_to "添加商品", new_mytp_product_path, :class => "btn btn-primary btn-small" %>
+</div>
+
+<table class="common table-bordered table-striped table-hover">   
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>商品名称</th>
+      <th>型号 </th>
+      <th>当前数量</th>
+      <th>计量单位 </th>
+      <th>进价（元）</th>
+      <th>建议销售价格（元）</th>
+      <th>操作</th>
+    </tr>  
+  </thead>
+  <tbody>  
+    <% @products.each_with_index do |product, index| %>
+      <tr>
+        <td class="tc"><%= index + 1  %></td>
+        <td><%= link_to product.name, mytp_product_path(product) %></td>
+        <td><%= product.model   %></td>
+        <td class="tc"><%= product.quantity %></td>
+        <td class="tc"><%= product.unit %></td>
+        <td class="tr"><%= product.buy_price %></td>    
+        <td class="tr"><%= product.sell_price %></td>        
+        <td>
+           <% edit_link = link_to "修改", edit_mytp_product_path(product, :back => request.fullpath) %>
+           <% destroy_link = link_to '删除', mytp_product_path(product, :back => request.fullpath), :method => 'delete', :confirm => "你确定删除吗?" %>
+           <%= operate_buttons([edit_link, destroy_link].compact) %> 
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= paginate @products %>

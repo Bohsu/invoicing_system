@@ -1,0 +1,4 @@
+<%= form_for @product_type, url: mytp_product_types_path(@product_type) do |f| %>
+  <h5>添加商品类别</h5> 
+  <%= render :partial => 'form', locals: {f: f} %>
+<% end %>

@@ -1,0 +1,44 @@
+<strong class="text-info">商品详细信息</strong> 
+<table class="common table-bordered pt20">
+  <tbody>
+  <tr> 
+      <th class='bg'>商品名称：</th> 
+      <td><%= @product.name %></td> 
+      <th class='bg'>商品编号：</th> 
+      <td><%= @product.code %></td>
+    </tr> 
+    <tr> 
+      <th class='bg'>型号：</th> 
+      <td><%= @product.model %></td>
+      <th class='bg'>商品类别：</th> 
+      <td><%= @product.product_type.name  %></td> 
+    </tr> 
+    <tr> 
+      <th class='bg'>当前数量：</th> 
+      <td><%= @product.quantity %></td> 
+      <th class='bg'>计量单位：</th> 
+      <td><%= @product.unit %></td> 
+    </tr> 
+    <tr>
+      <th class='bg'>采购价格：</th> 
+      <td><%= @product.buy_price %><span class="ml5">元</span></td> 
+      <th class='bg'>采购总价：</th> 
+      <td><%= @product.buy_total_price %><span class="ml5">元</span></td> 
+    </tr> 
+    <tr>
+       <th class='bg'>销售价格：</th> 
+       <td><%= @product.sell_price %><span class="ml5">元</span></td>
+       <th class='bg'>销售总价：</th> 
+       <td><%= @product.sell_total_price %><span class="ml5">元</span></td>
+    </tr> 
+    <tr>
+       <th class='bg'>备注：<br/>（100字以内）</th>
+       <td colspan="3"><%= @product.remark %></td>
+    </tr> 
+  </tbody>
+</table> 
+
+<div class='mt10'> 
+  <%= link_to "修改", edit_mytp_product_path(@product, :back => request.fullpath), :class=>'btn btn-small btn-primary' %>
+  <%= link_to '返回',  mytp_products_path, :class=>'btn btn-small btn-default' %>
+</div> 

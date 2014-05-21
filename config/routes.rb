@@ -15,6 +15,11 @@ InvoicingSystem::Application.routes.draw do
     resources :home, :only => [:index]
     resources :permissions
     resources :customers
+    resources :suppliers
+    resources :product_types
+    resources :units
+    resources :products
+    resources :buys
   end
 
     

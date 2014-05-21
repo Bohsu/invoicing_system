@@ -1,0 +1,36 @@
+<strong class="text-info">供应商信息管理</strong> 
+<div class="page-header">
+  <%= link_to "添加新供应商", new_mytp_supplier_path, :class => "btn btn-primary btn-small" %>
+</div>
+
+<table class="common table-bordered table-striped table-hover">   
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>公司名称</th>
+      <th>联系人 </th>
+      <th>手机</th>
+      <th>电话</th>
+      <th>邮箱</th>
+      <th>操作</th>
+    </tr>  
+  </thead>
+  <tbody>  
+    <% @suppliers.each_with_index do |supplier, index| %>
+      <tr>
+        <td class="tc"><%= index + 1  %></td>
+        <td><%= link_to supplier.name, "" %></td>
+        <td><%= supplier.contact %></td>
+        <td class="tc"><%= supplier.mobile %></td>
+        <td><%= supplier.tel %></td>
+        <td><%= supplier.email %></td>        
+        <td>
+           <% edit_link = link_to "修改", edit_mytp_supplier_path(supplier, :back => request.fullpath) %>
+           <% destroy_link = link_to '删除', mytp_supplier_path(supplier, :back => request.fullpath), :method => 'delete', :confirm => "你确定删除吗?" %>
+           <%= operate_buttons([edit_link, destroy_link].compact) %> 
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= paginate @suppliers %>

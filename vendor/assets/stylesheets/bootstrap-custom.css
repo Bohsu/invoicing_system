@@ -34,10 +34,12 @@ table.common thead th, table.common th {
   width: auto;
 }
 
+/**
 .simple_form textarea {
   width: 400px;
   height: 200px;
 }
+*/
 
 .simple_form input[type="file"] {
   width: 150px;
@@ -166,9 +168,8 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 30px;
+  height: 24px;
   padding: 2px 6px;
-  margin-bottom: 10px;
   font-size: 12px;
   line-height: 20px;
   color: #555555;
@@ -178,9 +179,11 @@ input[type="color"],
           border-radius: 4px;
 }
 
+/**
 textarea {
   height: auto;
 }
+*/
 
 input,
 textarea,
@@ -203,7 +206,7 @@ legend {
 }
 
 .required-mark{color:#F00;}
-.add_nested_fields { margin-left: 200px; margin-bottom: 18px; }
+.add_nested_fields { margin-left: 0px; margin-bottom: 0px; }
 .dropdown-menu {
   right: 0;
   left: initial;
