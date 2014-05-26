@@ -10,7 +10,7 @@ class Buy < ActiveRecord::Base
 
   def update_total_price
     self.total_price = self.buy_products.map(&:total_price).inject { |sum, n| sum + n } 
-    self.save  
+    self.save 
   end
   
 end

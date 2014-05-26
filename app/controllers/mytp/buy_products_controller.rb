@@ -47,6 +47,7 @@ class Mytp::BuyProductsController < Mytp::BaseController
   end
 
   def per_update
+    #@buy_product.update_product
     @buy.update_total_price
   end
 
