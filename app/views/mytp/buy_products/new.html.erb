@@ -1,0 +1,41 @@
+<%= form_for @buy_product, url: mytp_buy_buy_products_path(@buy, @buy_product) do |f| %>
+  <legend>添加进货商品</legend>
+    <div class="page-header">
+    请输入商品名称：<input type="text" id="product_name" />
+    <input type="hidden" id="buy_id" value="<%= @buy.id%>"/>
+    <input type="button" id="find_product_button" class="btn btn-small btn-primary ml10" value="查询" />
+  </div>
+  <%= render :partial => 'form', locals: {f: f} %>
+
+  <div class='form-actions mt10'> 
+  <%= f.submit '保存', :class=>'btn btn-small btn-primary' %>
+  <%#= f.submit '保存并新增', :class=>'btn btn-small btn-primary' %>
+  <%= link_to '取消',  mytp_buy_path(@buy.id), :class=>'btn btn-small btn-default ml20' %>
+</div> 
+<% end %>
+
+
+<script type="text/javascript">
+  $("#find_product_button").on("click",function(){
+    var name = $("#product_name").val();
+    var buy_id = $("#buy_id").val()
+    $.ajax({
+      type: "get",
+      url: "/mytp/buys/"+buy_id+"/buy_products/find_product",
+      data: {name : name},
+      success: function(message){
+        if (message != null){
+         $("#buy_product_product_id").val(message.id);
+         $("#buy_product_name").val(message.name);
+         $("#buy_product_model").val(message.model);
+         $("#buy_product_quantity").val(message.quantity);
+         $("#buy_product_unit").val(message.unit);
+         $("#buy_product_price").val(message.buy_price);
+         $("#buy_product_total_price").val(message.buy_total_price);
+        }else{
+          alert("查无此商品，请重新输入或者在商品管理添加");
+        }
+      }
+    });
+  });
+</script>

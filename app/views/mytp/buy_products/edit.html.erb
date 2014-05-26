@@ -1,0 +1,9 @@
+<%= form_for @buy_product, url: mytp_buy_buy_product_path(@buy, @buy_product) do |f| %>
+  <legend>修改进货商品</legend>
+  <%= render :partial => 'form', locals: {f: f} %>
+
+  <div class='form-actions mt10'> 
+  <%= f.submit '保存', :class=>'btn btn-small btn-primary' %>
+  <%= link_to '取消',  mytp_buy_path(@buy.id), :class=>'btn btn-small btn-default ml20' %>
+</div> 
+<% end %>

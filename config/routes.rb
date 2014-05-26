@@ -19,7 +19,16 @@ InvoicingSystem::Application.routes.draw do
     resources :product_types
     resources :units
     resources :products
-    resources :buys
+    resources :buys do
+      resources :buy_products do
+        collection do
+          get :find_product
+        end 
+      end
+      collection do
+        get :find_supplier
+      end
+    end
   end
 
     
