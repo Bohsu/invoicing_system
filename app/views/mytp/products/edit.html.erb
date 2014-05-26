@@ -1,4 +1,4 @@
 <%= form_for @product, url: mytp_product_path(@product) do |f| %>
-  <h5>修改商品信息</h5> 
+  <legend>修改商品信息</legend>
   <%= render :partial => 'form', locals: {f: f} %>
 <% end %>

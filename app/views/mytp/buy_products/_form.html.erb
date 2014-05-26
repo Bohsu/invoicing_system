@@ -1,0 +1,48 @@
+<table class="common table-bordered ">
+  <tbody>
+  <tr> 
+      <th class='bg'>商品名称：</th> 
+      <td>
+        <%= f.hidden_field :product_id %>
+        <%= f.text_field :name, :readonly => "readonly" %>
+      </td>
+    </tr> 
+    <tr> 
+      <th class='bg'>型号：</th> 
+      <td>
+         <%= f.text_field :model, :readonly => "readonly" %>
+      </td> 
+    </tr> 
+     <tr> 
+      <th class='bg'>数量：</th> 
+      <td>
+         <%= f.text_field :quantity %>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='bg'>计量单位：</th> 
+      <td>
+         <%= f.text_field :unit, :readonly => "readonly" %>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='bg'>采购价格：</th> 
+      <td>
+      <%= f.text_field :price, :class => "tr" %><span class="ml5">元</span>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='bg'>采购总价：</th> 
+      <td>
+         <%= f.text_field :total_price, :readonly => "readonly", :class => "tr" %><span class="ml5">元</span>
+      </td> 
+    </tr> 
+    <tr>
+       <th class='bg'>备注：<br/>（100字以内）</th>
+       <td colspan="3"><%= f.text_area :remark, cols: 50, rows: 6, class: 'w500 h50' %></td>
+    </tr> 
+  </tbody>
+</table> 
+
+
+

@@ -1,4 +1,27 @@
 <%= form_for @buy, url: mytp_buys_path(@buy) do |f| %>
-  <h5>添加进货单</h5> 
+  <legend>添加进货单</legend>
+  <div class="page-header">
+    请输入供应商名称：<input type="text" id="dep_name" />
+    <input type="button" id="find_dep_button" class="btn btn-small btn-primary ml10" value="查询" />
+  </div>
   <%= render :partial => 'form', locals: {f: f} %>
 <% end %>
+
+<script type="text/javascript">
+  $("#find_dep_button").on("click",function(){
+    var name = $("#dep_name").val();
+    $.ajax({
+      type: "get",
+      url: "/mytp/buys/find_supplier",
+      data: {name : name},
+      success: function(message){
+        if (message != null){
+         $("#buy_supplier_id").val(message.id);
+         $("#supplier_name").val(name);
+        }else{
+          alert("查无此公司，请重新输入");
+        }
+      }
+    });
+  });
+</script>

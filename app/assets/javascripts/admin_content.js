@@ -10,3 +10,5 @@
 //= require jquery_nested_form
 //= require jquery.Jcrop
 //= require product
+
+//= require buy

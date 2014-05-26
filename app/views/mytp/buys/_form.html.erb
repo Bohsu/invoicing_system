@@ -1,16 +1,19 @@
-<table class="common table-bordered pt20">
+<table class="common table-bordered ">
   <tbody>
   <tr> 
-      <th class='bg'>商品编号：</th> 
-      <td><%= f.text_field :code  %></td>
+      <th class='bg'>进货单编号：</th> 
+      <td><%= f.text_field :code, :readonly => "readonly" %></td>
     </tr> 
     <tr> 
       <th class='bg'>供应商：</th> 
-      <td><%= f.text_field :supplier_id, :readonly => "readonly" %><span class="ml10"><%= link_to "请点击选择供应商", ""%></span></td> 
+      <td>
+        <%= f.hidden_field :supplier_id %>
+        <%= text_field_tag :supplier_name, @buy.supplier ? @buy.supplier.name : '', :readonly => "readonly" %>
+      </td> 
     </tr> 
     <tr> 
       <th class='bg'>单据类型：</th> 
-      <td><%= f.select :type, [['进货', '进货'], ['退货 ', '退货 ']] %></td> 
+      <td><%= f.select :category, [['进货', '进货'], ['退货 ', '退货 ']] %></td> 
     </tr> 
     <tr>
        <th class='bg'>备注：<br/>（100字以内）</th>
@@ -19,7 +22,8 @@
   </tbody>
 </table> 
 
-<div class='mt10'> 
-  <%= f.submit '提交', :class=>'btn  btn-primary' %>
+<div class='form-actions mt10'> 
+  <%= f.submit '提交', :class=>'btn btn-small btn-primary' %>
   <%= link_to '取消',  mytp_buys_path, :class=>'btn btn-small btn-default' %>
 </div> 
+

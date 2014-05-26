@@ -9,13 +9,13 @@ class Mytp::BuysController < Mytp::BaseController
   end
 
   def new
-    @buy = Buy.new()  
+    @buy = Buy.new(:code => build_code)  
   end
 
   def create
     @buy = Buy.new(params[:buy])
     flash_msg(:success) if @buy.save
-    respond_back(@buy)
+    redirect_to :action => :show, :id => @buy.id
   end
 
   def edit
@@ -30,6 +30,11 @@ class Mytp::BuysController < Mytp::BaseController
   def destroy
     flash_msg(:success)  if @buy.destroy
     respond_back(@buy)
+  end
+
+  def find_supplier
+    @supplier = Supplier.find_by_name(params[:name])
+    render :json => @supplier
   end
 
   protected
