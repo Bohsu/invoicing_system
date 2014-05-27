@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>许邦伟业贸易中心销售出库单</title>
+  <style>
+    .w_100{width: 100%;}
+    .tc { text-align: center; }
+    .tl { text-align: left; }
+    .tr { text-align: right; }
+    .h25 { height: 25px; }
+    .h30 { height: 30px; }
+    .ml10{ margin-left: 10px;}
+    .pr10{ padding-right: 5px;}
+    .style1 td{border:1px solid #000;}
+    .table_content{width:100%;border:1px solid #000;border-collapse:collapse;font-size:14px;text-align: center;}
+    .head_div{padding-top:50px;padding-bottom:10px;}
+  </style>
+</head>
+<body>
+<div class="w_100 tc">
+    <div style="head_div tc">
+      <h2>许邦伟业贸易中心销售出库单</h2>
+    </div>
+<table class="w_100 tc">
+  <tr>
+    <td class="tr">供应商名：</td>
+    <td class="tl"><%= @sell.customer.name %></td>
+    <td class="tr">单据类型：</td>
+    <td class="tl"><%= @sell.category %></td>
+  </tr>
+  <tr>
+    <td class="tr">单据编号：</td>
+    <td class="tl"><%= @sell.code %></td>
+    <td class="tr">制单日期：</td>
+    <td class="tl"><%= Time.now.strftime("%F") %></td>
+  </tr> 
+  <tr><td class="tl" colspan="4"><%= @sell.remark %></td></tr> 
+  <tr><td class="tl" colspan="4">&nbsp;</td></tr>
+</table>
+<table class="style1 table_content" cellpadding="0" cellspacing="0" >
+    <tr class="h30" bgcolor="#efefef">
+      <td>序号</td> 
+      <td>商品名称</td> 
+      <td>型号</td> 
+      <td>数量</td> 
+      <td>计量单位</td> 
+      <td>销售价格(元)</td> 
+      <td>销售总价(元)</td> 
+      <td>备注</td> 
+    </tr>
+    <% @sell.sell_products.each_with_index do |sell_product, index| %>
+    <tr class="h25">
+      <td><%= index + 1 %></td>
+      <td><%= sell_product.name %></td>
+      <td><%= sell_product.model %></td>
+      <td><%= sell_product.quantity %></td>
+      <td><%= sell_product.unit %></td>
+      <td><%= "%0.2f" % sell_product.price %></td>
+      <td><%= "%0.2f" % sell_product.total_price %></td>
+      <td><%= sell_product.remark %></td> 
+    </tr>       
+    <% end %>
+    <tr class="h30">
+      <td colspan="6">合计</td>
+      <td><%= "%0.2f" %  @sell.total_price %></td>
+      <td></td>
+    </tr>
+</table> 
+</body>
+</html>

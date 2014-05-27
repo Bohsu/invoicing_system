@@ -37,6 +37,11 @@ class Mytp::BuysController < Mytp::BaseController
     render :json => @supplier
   end
 
+  def print_show
+    render :layout => false
+  end
+
+
   protected
 
   def per_load
