@@ -15,7 +15,10 @@ class Mytp::BuyProductsController < Mytp::BaseController
 
   def create
     @buy_product = @buy.buy_products.new(params[:buy_product])
-    flash_msg(:success)  if @buy_product.save
+    if @buy_product.save
+      @buy_product.update_product("create", '')
+      flash_msg(:success)  
+    end
     redirect_to mytp_buy_path(@buy)
   end
 
@@ -24,12 +27,19 @@ class Mytp::BuyProductsController < Mytp::BaseController
   end
 
   def update
-    flash_msg(:success) if @buy_product.update_attributes(params[:buy_product]) 
+    if @buy_product.update_attributes(params[:buy_product]) 
+      @buy_product.update_product("update", params[:old_quantity])
+      flash_msg(:success) 
+    end
     redirect_to mytp_buy_path(@buy)
   end
 
   def destroy
-    flash_msg(:success)  if @buy_product.destroy
+    old_quantity = @buy_product.quantity
+    if @buy_product.destroy
+      @buy_product.update_product("destroy", old_quantity)
+      flash_msg(:success)  
+    end
     redirect_to mytp_buy_path(@buy)
   end
 
@@ -47,7 +57,7 @@ class Mytp::BuyProductsController < Mytp::BaseController
   end
 
   def per_update
-    #@buy_product.update_product
+    
     @buy.update_total_price
   end
 

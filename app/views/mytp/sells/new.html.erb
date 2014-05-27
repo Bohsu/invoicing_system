@@ -1,0 +1,27 @@
+<%= form_for @sell, url: mytp_sells_path(@sell) do |f| %>
+  <legend>添加销售单</legend>
+  <div class="page-header">
+    请输入客户名称：<input type="text" id="dep_name" />
+    <input type="button" id="find_dep_button" class="btn btn-small btn-primary ml10" value="查询" />
+  </div>
+  <%= render :partial => 'form', locals: {f: f} %>
+<% end %>
+
+<script type="text/javascript">
+  $("#find_dep_button").on("click",function(){
+    var name = $("#dep_name").val();
+    $.ajax({
+      type: "get",
+      url: "/mytp/sells/find_customer",
+      data: {name : name},
+      success: function(message){
+        if (message != null){
+         $("#sell_customer_id").val(message.id);
+         $("#customer_name").val(name);
+        }else{
+          alert("查无此公司，请重新输入");
+        }
+      }
+    });
+  });
+</script>

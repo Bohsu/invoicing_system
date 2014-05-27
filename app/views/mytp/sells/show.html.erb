@@ -1,0 +1,60 @@
+<legend>销售单详情</legend>
+<table class="common table-bordered ">
+  <tbody>
+  <tr> 
+      <th class='bg'>客户：</th> 
+      <td>
+        <%= @sell.customer.name %>
+      </td> 
+      <th class='bg'>销售单编号：</th> 
+      <td><%= @sell.code %></td>
+    </tr> 
+    <tr> 
+      <th class='bg'>总金额：</th> 
+      <td><%= @sell.total_price %>元</td> 
+      <th class='bg'>单据类型：</th> 
+      <td><%= @sell.category %></td> 
+    </tr> 
+    <tr>
+       <th class='bg'>备注：</th>
+       <td colspan="3"><%= @sell.remark %></td>
+    </tr> 
+  </tbody>
+</table> 
+<legend class="mb4 font14 mt20">销售商品信息列表</legend>
+<table class="common table-bordered ">
+  <tbody>
+  <tr> 
+      <th>序号</th> 
+      <th>商品名称</th> 
+      <th>型号</th> 
+      <th>数量</th> 
+      <th>计量单位</th> 
+      <th>销售价格</th> 
+      <th>销售总价</th> 
+      <th>操作</th>
+    </tr> 
+    <% @sell.sell_products.each_with_index do |sell_product, index|  %>
+       <tr>
+         <td class="tc"><%= index + 1 %></td>
+         <td><%= sell_product.name %></td>
+         <td><%= sell_product.model %></td>
+         <td class="tr"><%= sell_product.quantity %></td>
+         <td class="tc"><%= sell_product.unit %></td>
+         <td class="tr"><%= sell_product.price %></td>
+         <td class="tr"><%= sell_product.total_price %></td>
+         <td>
+           <% edit_link = link_to "修改", edit_mytp_sell_sell_product_path(@sell, sell_product, :back => request.fullpath) %>
+           <% destroy_link = link_to '删除', mytp_sell_sell_product_path(@sell, sell_product, :back => request.fullpath), :method => 'delete', :confirm => "你确定删除吗?" %>
+           <%= operate_buttons([edit_link, destroy_link].compact) %> 
+         </td>
+       </tr> 
+    <% end %>
+  </tbody>
+</table> 
+<div class='form-actions mt10'> 
+  <%= link_to "添加销售商品", new_mytp_sell_sell_product_path(@sell.id), :class => "btn  btn-small btn-primary mr10" %>
+  <%= link_to '返回',  mytp_sells_path, :class=>'btn btn-small btn-default' %>
+</div> 
+
+

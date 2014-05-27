@@ -23,7 +23,7 @@
         <td class="tc"><%= buy.created_at %></td>
         <td class="tc"><%= link_to buy.code, mytp_buy_path(buy) %></td>
         <td class="tc"><%= buy.category %></td>
-        <td ><%= buy.supplier.name %></td>
+        <td ><%= buy.supplier.name if buy.supplier%></td>
         <td class="tr"><%= buy.total_price %></td>    
         <td ><%= buy.remark %></td>        
         <td>

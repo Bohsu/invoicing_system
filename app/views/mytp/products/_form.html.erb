@@ -4,7 +4,7 @@
       <th class='bg'>商品名称：</th> 
       <td> <%= f.text_field :name  %></td> 
       <th class='bg'>商品编号：</th> 
-      <td>暂时空着</td>
+      <td><%= f.text_field :code, :readonly => "readonly" %></td>
     </tr> 
     <tr> 
       <th class='bg'>型号：</th> 
@@ -38,6 +38,6 @@
 </table> 
 
 <div class='form-actions mt10'> 
-  <%= f.submit '提交', :class=>'btn  btn-primary' %>
+  <%= f.submit '提交', :class=>'btn btn-small btn-primary' %>
   <%= link_to '取消',  mytp_products_path, :class=>'btn btn-small btn-default' %>
 </div> 

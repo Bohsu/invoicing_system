@@ -29,6 +29,16 @@ InvoicingSystem::Application.routes.draw do
         get :find_supplier
       end
     end
+    resources :sells do
+      resources :sell_products do
+        collection do
+          get :find_product
+        end 
+      end
+      collection do
+        get :find_customer
+      end
+    end
   end
 
     

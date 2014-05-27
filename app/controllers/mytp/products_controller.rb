@@ -13,7 +13,7 @@ class Mytp::ProductsController < Mytp::BaseController
   end
 
   def new
-    @product = Product.new()  
+    @product = Product.new(:code => build_code)  
   end
 
   def create
@@ -27,7 +27,7 @@ class Mytp::ProductsController < Mytp::BaseController
   end
 
   def update
-    flash_msg(:success) if @product.update_attributes(params[:Product]) 
+    flash_msg(:success) if @product.update_attributes(params[:product]) 
     respond_back(@product)
   end
 

@@ -57,6 +57,7 @@ gem 'easy_captcha'
 
 # better error show
 gem 'better_errors'
+gem 'binding_of_caller'
 
 # 解决中文参数
 gem 'chinese_pinyin'

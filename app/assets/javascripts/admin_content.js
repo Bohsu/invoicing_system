@@ -12,3 +12,4 @@
 //= require product
 
 //= require buy
+//= require sell

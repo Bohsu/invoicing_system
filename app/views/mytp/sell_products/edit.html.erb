@@ -1,0 +1,9 @@
+<%= form_for @sell_product, url: mytp_sell_sell_product_path(@sell, @sell_product) do |f| %>
+  <legend>修改销售商品</legend>
+  <%= render :partial => 'form', locals: {f: f} %>
+
+  <div class='form-actions mt10'> 
+  <%= f.submit '保存', :class=>'btn btn-small btn-primary' %>
+  <%= link_to '取消',  mytp_sell_path(@sell.id), :class=>'btn btn-small btn-default ml20' %>
+</div> 
+<% end %>

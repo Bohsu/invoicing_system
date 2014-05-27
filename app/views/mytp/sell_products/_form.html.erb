@@ -17,7 +17,7 @@
       <th class='bg'>数量：</th> 
       <td>
          <%= f.text_field :quantity %>
-         <%= hidden_field_tag 'old_quantity', @buy_product.quantity if @buy %>
+         <%= hidden_field_tag 'old_quantity', @sell_product.quantity if @sell %>
       </td> 
     </tr> 
     <tr> 
@@ -27,13 +27,13 @@
       </td> 
     </tr> 
     <tr> 
-      <th class='bg'>采购价格：</th> 
+      <th class='bg'>销售价格：</th> 
       <td>
       <%= f.text_field :price, :class => "tr" %><span class="ml5">元</span>
       </td> 
     </tr> 
     <tr> 
-      <th class='bg'>采购总价：</th> 
+      <th class='bg'>销售总价：</th> 
       <td>
          <%= f.text_field :total_price, :readonly => "readonly", :class => "tr" %><span class="ml5">元</span>
       </td> 
