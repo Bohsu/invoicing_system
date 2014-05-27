@@ -14,11 +14,10 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-development:
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  database: invoicing_system
-  pool: 5
-  username: postgres
-  password: 'postgres'
+
+default: &default
+    adapter: postgresql
+    encoding: unicode
+    # For details on connection pooling, see rails configuration guide
+    # http://guides.rubyonrails.org/configuring.html#database-pooling
+    pool: 5
