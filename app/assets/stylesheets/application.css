@@ -11,8 +11,3 @@
  *= require_self
  *= require common
  */
-
-body {
-    background: #A3B3BF;
-    font-family: Verdana,Arial,Helvetica,"微软雅黑","宋体","黑体",sans-serif;
-}

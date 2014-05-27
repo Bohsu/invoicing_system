@@ -1,4 +1,7 @@
-<legend>销售单详情</legend>
+<legend>
+  销售单详情
+  <span><%= link_to_blank "打印", print_show_mytp_sell_path(@sell), :class => "btn btn-small btn-success" %></span>
+</legend>
 <table class="common table-bordered ">
   <tbody>
   <tr> 

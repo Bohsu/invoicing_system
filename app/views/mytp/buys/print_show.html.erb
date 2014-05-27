@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>许邦伟业贸易中心采购入库单</title>
+  <style>
+    .w_100{width: 100%;}
+    .tc { text-align: center; }
+    .tl { text-align: left; }
+    .tr { text-align: right; }
+    .h25 { height: 25px; }
+    .h30 { height: 30px; }
+    .ml10{ margin-left: 10px;}
+    .pr10{ padding-right: 5px;}
+    .style1 td{border:1px solid #000;}
+    .table_content{width:100%;border:1px solid #000;border-collapse:collapse;font-size:14px;text-align: center;}
+    .head_div{padding-top:50px;padding-bottom:10px;}
+  </style>
+</head>
+<body>
+<div class="w_100 tc">
+    <div style="head_div tc">
+      <h2>许邦伟业贸易中心采购入库单</h2>
+    </div>
+<table class="w_100 tc">
+  <tr>
+    <td class="tr">供应商名：</td>
+    <td class="tl"><%= @buy.supplier.name %></td>
+    <td class="tr">单据类型：</td>
+    <td class="tl"><%= @buy.category %></td>
+  </tr>
+  <tr>
+    <td class="tr">单据编号：</td>
+    <td class="tl"><%= @buy.code %></td>
+    <td class="tr">制单日期：</td>
+    <td class="tl"><%= Time.now.strftime("%F") %></td>
+  </tr> 
+  <tr><td class="tl" colspan="4"><%= @buy.remark %></td></tr> 
+  <tr><td class="tl" colspan="4">&nbsp;</td></tr>
+</table>
+<table class="style1 table_content" cellpadding="0" cellspacing="0" >
+    <tr class="h30" bgcolor="#efefef">
+      <td>序号</td> 
+      <td>商品名称</td> 
+      <td>型号</td> 
+      <td>数量</td> 
+      <td>计量单位</td> 
+      <td>采购价格(元)</td> 
+      <td>采购总价(元)</td> 
+      <td>备注</td> 
+    </tr>
+    <% @buy.buy_products.each_with_index do |buy_product, index| %>
+    <tr class="h25">
+      <td><%= index + 1 %></td>
+      <td><%= buy_product.name %></td>
+      <td><%= buy_product.model %></td>
+      <td><%= buy_product.quantity %></td>
+      <td><%= buy_product.unit %></td>
+      <td><%= "%0.2f"  % buy_product.price %></td>
+      <td><%= "%0.2f"  % buy_product.total_price %></td>
+      <td><%= buy_product.remark %></td> 
+    </tr>       
+    <% end %>
+    <tr class="h30">
+      <td colspan="6">合计</td>
+      <td><%= "%0.2f" % @buy.total_price %></td>
+      <td></td>
+    </tr>
+</table> 
+</body>
+</html>
