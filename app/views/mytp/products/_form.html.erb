@@ -1,13 +1,13 @@
 <table class="common table-bordered pt20">
   <tbody>
   <tr> 
-      <th class='bg'>商品名称：</th> 
+      <th class='bg'><%= require_span %>商品名称：</th> 
       <td> <%= f.text_field :name  %></td> 
       <th class='bg'>商品编号：</th> 
       <td><%= f.text_field :code, :readonly => "readonly" %></td>
     </tr> 
     <tr> 
-      <th class='bg'>型号：</th> 
+      <th class='bg'><%= require_span %>型号：</th> 
       <td><%= f.text_field :model  %></td>
       <th class='bg'>商品类别：</th> 
       <td><%= f.select :product_type_id, ProductType.get_product_types  %></td> 
@@ -19,17 +19,17 @@
       <td><%= f.select :unit, Unit.get_units %></td> 
     </tr> 
     <tr>
-      <th class='bg'>采购价格：</th> 
+      <th class='bg'>建议采购价格：</th> 
       <td><%= f.text_field :buy_price, :class => 'tr' %><span class="ml5">元</span></td> 
+      <th class='bg'>建议销售价格：</th> 
+      <td><%= f.text_field :sell_price, :class => 'tr' %><span class="ml5">元</span></td>
+    </tr> 
+    <!-- <tr>
       <th class='bg'>采购总价：</th> 
       <td><%= f.text_field :buy_total_price, :readonly => "readonly", :class => 'tr' %><span class="ml5">元</span></td> 
-    </tr> 
-    <tr>
-       <th class='bg'>销售价格：</th> 
-       <td><%= f.text_field :sell_price, :class => 'tr' %><span class="ml5">元</span></td>
-       <th class='bg'>销售总价：</th> 
-       <td><%= f.text_field :sell_total_price, :readonly => "readonly", :class => 'tr' %><span class="ml5">元</span></td>
-    </tr> 
+      <th class='bg'>销售总价：</th> 
+      <td><%= f.text_field :sell_total_price, :readonly => "readonly", :class => 'tr' %><span class="ml5">元</span></td>
+    </tr>  -->
     <tr>
        <th class='bg'>备注：<br/>（100字以内）</th>
        <td colspan="3"><%= f.text_area :remark, cols: 50, rows: 6, class: 'w500 h50' %></td>

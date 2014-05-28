@@ -1,4 +1,4 @@
-<%= form_for @supplier, url: mytp_supplier_path(@supplier) do |f| %>
+<%= simple_form_for @supplier, url: mytp_supplier_path(@supplier), :validate => true do |f| %>
   <legend>修改供应商信息</legend>
   <%= render :partial => 'form', locals: {f: f} %>
 <% end %>

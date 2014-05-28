@@ -13,7 +13,7 @@ class Mytp::ProductsController < Mytp::BaseController
   end
 
   def new
-    @product = Product.new(:code => build_code)  
+    @product = Product.new(:code => build_code, :quantity => 0)  
   end
 
   def create

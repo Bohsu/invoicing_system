@@ -5,7 +5,7 @@
       <td><%= f.text_field :code, :readonly => "readonly" %></td>
     </tr> 
     <tr> 
-      <th class='bg'>客户：</th> 
+      <th class='bg'><%= require_span %>客户：</th> 
       <td>
         <%= f.hidden_field :customer_id %>
         <%= text_field_tag :customer_name, @sell.customer ? @sell.customer.name : '', :readonly => "readonly" %>
@@ -23,7 +23,7 @@
 </table> 
 
 <div class='form-actions mt10'> 
-  <%= f.submit '提交', :class=>'btn btn-small btn-primary' %>
+  <%= f.submit '提交', :class=>'btn btn-small btn-primary', :id => "sell_form_submit" %>
   <%= link_to '取消',  mytp_sells_path, :class=>'btn btn-small btn-default' %>
 </div> 
 

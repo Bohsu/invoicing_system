@@ -1,4 +1,4 @@
-<%= form_for @sell_product, url: mytp_sell_sell_product_path(@sell, @sell_product) do |f| %>
+<%= simple_form_for @sell_product, url: mytp_sell_sell_product_path(@sell, @sell_product), :validate => true do |f| %>
   <legend>修改销售商品</legend>
   <%= render :partial => 'form', locals: {f: f} %>
 

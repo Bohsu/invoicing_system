@@ -1,4 +1,4 @@
-<%= form_for @unit, url: mytp_unit_path(@unit) do |f| %>
+<%= simple_form_for @unit, url: mytp_unit_path(@unit), :validate => true do |f| %>
   <legend>修改计量单位</legend>
   <%= render :partial => 'form', locals: {f: f} %>
 <% end %>
