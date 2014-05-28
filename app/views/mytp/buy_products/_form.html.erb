@@ -1,27 +1,27 @@
 <table class="common table-bordered ">
   <tbody>
   <tr> 
-      <th class='bg'>商品名称：</th> 
+      <th class='bg'><%= require_span %>商品名称：</th> 
       <td>
         <%= f.hidden_field :product_id %>
         <%= f.text_field :name, :readonly => "readonly" %>
       </td>
     </tr> 
     <tr> 
-      <th class='bg'>型号：</th> 
+      <th class='bg'><%= require_span %>型号：</th> 
       <td>
          <%= f.text_field :model, :readonly => "readonly" %>
       </td> 
     </tr> 
      <tr> 
-      <th class='bg'>数量：</th> 
+      <th class='bg'><%= require_span %>数量：</th> 
       <td>
          <%= f.text_field :quantity %>
          <%= hidden_field_tag 'old_quantity', @buy_product.quantity if @buy %>
       </td> 
     </tr> 
     <tr> 
-      <th class='bg'>计量单位：</th> 
+      <th class='bg'><%= require_span %>计量单位：</th> 
       <td>
          <%= f.text_field :unit, :readonly => "readonly" %>
       </td> 

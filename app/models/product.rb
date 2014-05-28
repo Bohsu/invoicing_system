@@ -6,5 +6,7 @@ class Product < ActiveRecord::Base
   
   belongs_to :product_type
 
-  validates_presence_of :name
+  validates_presence_of :name, :model
+  validates_uniqueness_of :name, :scope => :model
+  validates_numericality_of :quantity, :only_integer => true
 end

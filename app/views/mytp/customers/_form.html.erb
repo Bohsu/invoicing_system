@@ -1,19 +1,19 @@
 <table class="common table-bordered pt20">
   <tbody>
   <tr> 
-      <th class='bg'>公司名称：</th> 
+      <th class='bg'><%= require_span %>公司名称：</th> 
       <td> <%= f.text_field :name  %></td> 
       <th class='bg'>公司类型：</th> 
       <td> 暂时空着</td>
     </tr> 
     <tr> 
-      <th class='bg'>联系人：</th> 
+      <th class='bg'><%= require_span %>联系人：</th> 
       <td><%= f.text_field :contact  %></td>
       <th class='bg'>手机：</th> 
       <td><%= f.text_field :mobile  %></td> 
     </tr> 
     <tr> 
-      <th class='bg'>电话：</th> 
+      <th class='bg'><%= require_span %>电话：</th> 
       <td><%= f.text_field :tel  %></td> 
       <th class='bg'>传真：</th> 
       <td><%= f.text_field :fax %></td> 

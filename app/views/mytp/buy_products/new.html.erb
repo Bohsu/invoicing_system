@@ -1,6 +1,6 @@
-<%= form_for @buy_product, url: mytp_buy_buy_products_path(@buy, @buy_product) do |f| %>
+<%= simple_form_for @buy_product, url: mytp_buy_buy_products_path(@buy, @buy_product), :validate => true do |f| %>
   <legend>添加进货商品</legend>
-    <div class="page-header">
+  <div class="page-header">
     请输入商品名称：<input type="text" id="product_name" />
     <input type="hidden" id="buy_id" value="<%= @buy.id%>"/>
     <input type="button" id="find_product_button" class="btn btn-small btn-primary ml10" value="查询" />
@@ -8,7 +8,7 @@
   <%= render :partial => 'form', locals: {f: f} %>
 
   <div class='form-actions mt10'> 
-  <%= f.submit '保存', :class=>'btn btn-small btn-primary' %>
+  <%= f.submit '保存', :class=>'btn btn-small btn-primary', :id => "buy_product_form_submit" %>
   <%#= f.submit '保存并新增', :class=>'btn btn-small btn-primary' %>
   <%= link_to '取消',  mytp_buy_path(@buy.id), :class=>'btn btn-small btn-default ml20' %>
 </div> 
